@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="Version 1 tag" author="2b">
+        <tagDatabase tag="Version 1"/>
+    </changeSet>
+    <include file="src\main\resources\liquibase\V-1.0\scripts\2019.03.29_01_Create_User_table.sql"/>
+    <include file="src\main\resources\liquibase\V-1.0\scripts\2019.03.29_02_Add_Test_User.sql"/>
+
+</databaseChangeLog>

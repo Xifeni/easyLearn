@@ -1,0 +1,49 @@
+buildscript {
+    dependencies {
+        classpath('org.postgresql:postgresql:42.2.5')
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.liquibase.gradle' version '1.1.1'
+}
+
+group 'EasyLearn'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly group: 'org.projectlombok', name: 'lombok', version : '1.18.6'
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version : '1.18.6'
+    compile group: 'javax.persistence', name: 'persistence-api', version: '1.0'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.2.Final'
+    compile group: 'com.zaxxer', name: 'HikariCP', version: '2.4.6'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.26'
+}
+
+liquibase {
+    activities {
+        //noinspection GroovyAssignabilityCheck
+        main {
+            changeLogFile 'src/main/resources/liquibase/changelog.xml'
+            url 'jdbc:postgresql://localhost:5432/postgres'
+            username 'postgres'
+            password 'example'
+        }
+    }
+}
+
+task updateDbMain() {
+    group = 'develop'
+    doLast {
+        liquibase.runList = 'main'
+        tasks.update.execute()
+    }
+}
