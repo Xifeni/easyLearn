@@ -1,4 +1,4 @@
-package model;
+package core.model;
 
 import lombok.Data;
 
@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
     private String id;
     @Column
