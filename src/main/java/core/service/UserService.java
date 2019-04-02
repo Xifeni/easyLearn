@@ -12,8 +12,7 @@ public class UserService {
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-
-    public User getUserById(String id) {
+    public User getUserById(String id){
         return userRepository.getUserById(id);
     }
 }
