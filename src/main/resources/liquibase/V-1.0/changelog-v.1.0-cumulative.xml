@@ -8,6 +8,9 @@
         <tagDatabase tag="Version 1"/>
     </changeSet>
     <include file="src\main\resources\liquibase\V-1.0\scripts\2019.03.29_01_Create_User_table.sql"/>
-    <include file="src\main\resources\liquibase\V-1.0\scripts\2019.03.29_02_Add_Test_User.sql"/>
-
+    <include file="src\main\resources\liquibase\V-1.0\scripts\2019.04.08_02_Create_Topics_table.sql"/>
+    <include file="src\main\resources\liquibase\V-1.0\scripts\2019.04.08_03_Create_Roles_table.sql"/>
+    <include file="src\main\resources\liquibase\V-1.0\scripts\2019.04.08_04_Create_Tags_table.sql"/>
+    <include file="src\main\resources\liquibase\V-1.0\scripts\2019.04.08_05_Create_Comments_table.sql"/>
+    <include file="src\main\resources\liquibase\V-1.0\scripts\2019.04.09_06_Add_Test_Data.sql"/>
 </databaseChangeLog>

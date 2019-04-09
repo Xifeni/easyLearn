@@ -1,0 +1,23 @@
+--liquibase formatted sql
+--changeset 2b:CREATE_TABLE_COMMENTS
+CREATE TABLE COMMENTS
+(
+    COMMENT_ID      UUID DEFAULT uuid_generate_v4() NOT NULL PRIMARY KEY,
+    USER_ID         UUID                            NOT NULL,
+    TOPIC_ID        UUID                            NOT NULL,
+    DATE_OF_CREATED TIMESTAMP                       NOT NULL,
+    DATE_OF_UPDATE  TIMESTAMP                       NOT NULL,
+    COMMENT         VARCHAR(10000)                  NOT NULL
+);
+
+ALTER TABLE COMMENTS
+    ADD CONSTRAINT TOPICS_ID_FK
+        FOREIGN KEY (TOPIC_ID) REFERENCES TOPICS
+            ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE COMMENTS
+    ADD CONSTRAINT USERS_ID_FK
+        FOREIGN KEY (USER_ID) REFERENCES USERS
+            ON UPDATE CASCADE ON DELETE CASCADE;
+
+--rollback drop table COMMENTS;
